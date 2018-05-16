@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   end
   config.vm.define 'master' do |master|
     master.vm.network "private_network", ip: "192.168.55.2"
-    config.vm.synced_folder "srv/", "/srv/salt/", type: "rsync"
+    config.vm.synced_folder "srv/", "/srv/", type: "rsync"
     master.vm.hostname = "salt"
     master.vm.provision 'shell', inline: <<-SHELL
     hostnamectl set-hostname master

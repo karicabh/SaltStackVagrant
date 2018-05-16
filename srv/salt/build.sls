@@ -24,3 +24,13 @@ build:
 datavolume:
   docker_volume.present:
     - name: data
+
+
+docker-registries:
+  hub:
+    username: {{ pillar['docker-registries']['username'] }}
+    password: {{ pillar['docker-registries']['password'] }}
+
+pushbuild:
+  dockerng.push:
+    - image: karic/spring_clinic_deployment
