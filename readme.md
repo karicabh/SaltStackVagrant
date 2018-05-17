@@ -7,5 +7,5 @@
   salt 'master' state.apply jdk
   salt 'master' state.apply mvn
   salt 'master' state.apply build
-  salt 'web*' state.apply deploy
+  salt 'web*' state.apply run
 ```
