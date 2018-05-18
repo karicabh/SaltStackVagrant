@@ -18,3 +18,8 @@ build_run_container:
     - build: /srv/salt/dockerfiles/run/
     - name: karic/petclinic_run
     - tag: latest
+
+push_karic/petclinic_run:
+  module.run:
+    - name: docker.push
+    - image: karic/petclinic_run

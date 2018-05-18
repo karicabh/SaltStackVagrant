@@ -1,4 +1,4 @@
-install_epel_relese:
+install_epel_release:
   pkg.installed:
     - pkgs:
       - epel-release
@@ -12,7 +12,7 @@ install_prerequisites:
       - device-mapper-persistent-data
       - lvm2
     - require:
-      - pkg: epelrel
+      - pkg: install_epel_release
 
 add_docker_ce_repo:
   cmd.run:
@@ -36,4 +36,5 @@ install_docker_py_pip:
 
 enable_docker_service:
   service.running:
+    - name: docker
     - enable: True

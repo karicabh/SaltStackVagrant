@@ -1,6 +1,9 @@
 run_karic/petclinic_run:
-  docker_container.run:
+  docker_container.running:
+    - name: petclinic_run
     - image: karic/petclinic_run
+    - port_bindings:
+      - 8080:8080
     - replace: True
     - detach: True
   require:
