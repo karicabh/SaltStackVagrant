@@ -1,6 +1,4 @@
 buildjdk:
-  require:
-    - sls: docker-engine
   docker_image.present:
     - build: /srv/salt/dockerfiles/jdk/
     - name: karic/jdk

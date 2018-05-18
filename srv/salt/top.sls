@@ -1,5 +1,4 @@
 base:
   '*':
-    - docker-engine
-  'master':
+    - prerequisites
     - ip4fwrd
