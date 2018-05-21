@@ -1,4 +1,4 @@
 docker-registries:
   hub:
-    username: karic 
-    password: password123
+    username: karic
+    password: pass123

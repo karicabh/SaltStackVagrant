@@ -16,6 +16,7 @@ relocate_artifcat:
 build_run_container:
   docker_image.present:
     - build: /srv/salt/dockerfiles/run/
+    - force: True
     - name: karic/petclinic_run
     - tag: latest
 

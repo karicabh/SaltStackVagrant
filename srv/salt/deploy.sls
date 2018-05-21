@@ -3,7 +3,7 @@ run_karic/petclinic_run:
     - name: petclinic_run
     - image: karic/petclinic_run
     - port_bindings:
-      - 8080:8080
+      - 8080:{{ pillar['port'] }}
     - replace: True
     - detach: True
   require:
