@@ -1,7 +1,13 @@
 gen_petclinic_artifact:
   docker_container.run:
     - image: karic/mvn
-    - command:  /usr/src/petclinic/build_artifact.sh
+    - command:  /usr/src/petclinic/build_artifact_4mysql.sh
+    - environment:
+      - USER: {{ pillar['mysql']['user'] }}
+      - PASS: {{ pillar['mysql']['pass'] }}
+      - IP: {{ pillar['mysql']['ip'] }}
+      - PORT: {{ pillar['mysql']['port'] }}
+      - DATABASE: {{ pillar['mysql']['database'] }}
     - replace: True
     - binds: 
       - /srv/salt/artifact/:/data/

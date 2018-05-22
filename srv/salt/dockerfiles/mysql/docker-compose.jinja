@@ -1,0 +1,9 @@
+mysql:
+  image: mysql:5.7
+  ports:
+    - "3306:{{ pillar['mysql']['port'] }}"
+  environment:
+    - MYSQL_ROOT_PASSWORD={{ pillar['mysql']['pass'] }}
+    - MYSQL_DATABASE={{ pillar['mysql']['database'] }}
+  volumes:
+    - "./conf.d:/etc/mysql/conf.d:ro"
