@@ -5,6 +5,5 @@
 network:
   service.running:
     - enable: True
-    - reload: True
     - watch:
       - /etc/sysctl.conf

@@ -1,6 +1,7 @@
 ```
-  salt 'master' state.apply build
-  salt 'web*' state.apply deploy
+  salt * state.apply 
+  salt master state.apply mysql 
+  salt web-minion state.apply deploy
 ```
 
 

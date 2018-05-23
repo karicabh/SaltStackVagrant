@@ -38,3 +38,5 @@ enable_docker_service:
   service.running:
     - name: docker
     - enable: True
+  require:
+    - pip.installed: install_docker_py_pip

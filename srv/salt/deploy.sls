@@ -1,3 +1,7 @@
+karic/petclinic_run:
+  docker_image.present:
+    - tag: latest
+    - force: True
 run_karic/petclinic_run:
   docker_container.running:
     - name: petclinic_run

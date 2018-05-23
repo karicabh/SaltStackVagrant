@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.define 'master' do |master|
     master.vm.network "private_network", ip: "192.168.55.2"
     master.vm.hostname = "salt"
+    master.vm.network "forwarded_port", guest: 3306, host: 3306
     master.vm.provision 'shell', inline: <<-SHELL
     hostnamectl set-hostname master
     yum install -y https://repo.saltstack.com/yum/redhat/salt-repo-latest-2.el7.noarch.rpm
