@@ -1,3 +1,5 @@
+include:
+  - build.mvn
 gen_petclinic_artifact:
   docker_container.run:
     - image: karic/mvn

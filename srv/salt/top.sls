@@ -1,6 +1,4 @@
 base:
   '*':
-    - prerequisites
-    - ip4fwrd
-  'web_minion':
-    - deploy
+    - provision.prerequisites
+    - provision.ip4fwrd
