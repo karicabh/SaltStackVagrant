@@ -6,7 +6,7 @@ run_karic/mysql:
   docker_container.running:
     - name: mysql
     - image: karic/mysql
-    - command: ./prov_mysql_2.sh
+    - command: /prov_mysql_2.sh
     - environment:
       - MYSQL_USER: {{ pillar['mysql']['user'] }}
       - MYSQL_PASS: {{ pillar['mysql']['pass'] }}
