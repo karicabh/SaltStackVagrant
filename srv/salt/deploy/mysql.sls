@@ -6,13 +6,17 @@ run_karic/mysql:
   docker_container.running:
     - name: mysql
     - image: karic/mysql
+    - command: ./prov_mysql_2.sh
+    - environment:
+      - MYSQL_USER: {{ pillar['mysql']['user'] }}
+      - MYSQL_PASS: {{ pillar['mysql']['pass'] }}
+      - MYSQL_DATABASE: {{ pillar['mysql']['database'] }}
+
     - port_bindings:
-      - 3306:3306
+      - 3306:{{ pillar['mysql']['port'] }}
     - replace: True
     - detach: True
   require:
     - docker_image.present: karic/mysql
 
-#create_petlinic_db:
-#  cmd.run:
-#    - name: mysql -u root -e "CREATE DATABASE petclinic";
+
