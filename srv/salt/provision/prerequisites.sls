@@ -28,15 +28,41 @@ install_docker_ce:
     - cmd: add_docker_ce_repo
 
 
+
+docker_service_down:
+  service.dead:
+    - enable: False
+    - name: docker
+  require:
+    - pkg: install_docker_ce
+
+
+/etc/docker/daemon.json:
+  file.managed:
+    - makedirs: True
+    - contents: |
+        {
+        "storage-driver": "devicemapper"
+        }
+  require:
+    - service: docker_service_down
+    - pkg: install_docker_ce
+
+
+
+
 install_docker_py_pip:
   pip.installed:
     - name: docker-py
   require:
     - pkg: install_prerequisites
+    - pkg: install_docker_ce
+
 
 enable_docker_service:
   service.running:
     - name: docker
+    - reload: True
     - enable: True
   require:
-    - pip.installed: install_docker_py_pip
+    - file: /etc/docker/daemon.json
